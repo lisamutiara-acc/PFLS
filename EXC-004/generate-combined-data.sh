@@ -3,8 +3,8 @@ set -euo pipefail
 
 
 # Always use RAW-DATA as main directory
-main_dir="$(dirname "$0")/../RAW-DATA"
-out_dir="$(dirname "$0")/../COMBINED-DATA"
+main_dir="RAW-DATA"
+out_dir="COMBINED-DATA"
 
 translation_file="${main_dir}/sample-translation.txt"
 if [[ ! -f "${translation_file}" ]]; then
