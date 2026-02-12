@@ -1,22 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-main_dir="${1:-}"
-out_dir="${2:-}"
 
-if [[ -z "${main_dir}" ]]; then
-  echo "Usage: $0 <main_directory> [output_directory]" >&2
-  exit 1
-fi
+# Always use RAW-DATA as main directory
+main_dir="$(dirname "$0")/../RAW-DATA"
+out_dir="$(dirname "$0")/../COMBINED-DATA"
 
 translation_file="${main_dir}/sample-translation.txt"
 if [[ ! -f "${translation_file}" ]]; then
-  echo "Missing sample-translation.txt" >&2
+  echo "Missing sample-translation.txt in RAW-DATA" >&2
   exit 1
-fi
-
-if [[ -z "${out_dir}" ]]; then
-  out_dir="$(dirname "${main_dir}")/COMBINED-DATA"
 fi
 
 mkdir -p "${out_dir}"
